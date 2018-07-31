@@ -182,6 +182,7 @@ export default {
         bg-image('special_3')
     .menu-wrapper
       flex 0 0 80px
+      height 100%
       width 80px
       background #f3f5f7
       .menu-item

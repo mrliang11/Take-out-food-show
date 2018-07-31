@@ -20,10 +20,12 @@
           <span class="cart-title">购物车</span>
           <span class="clear" @click="removeAll">清空</span>
         </div>
-        <div class="food-item" v-for="food in selectFoods" :key="food.id">
-          <span class="food-title">{{food.name}}</span>
-          <span class="food-price">{{food.price}}</span>
-          <cartcontrol class="cart-control" :food = "food"></cartcontrol>
+        <div class="item-wrapper">
+          <div class="food-item" v-for="food in selectFoods" :key="food.id">
+            <span class="food-title">{{food.name}}</span>
+            <span class="food-price">{{food.price}}</span>
+            <cartcontrol class="cart-control" :food = "food"></cartcontrol>
+          </div>
         </div>
       </div>
     </div>
@@ -33,6 +35,7 @@
 <script>
 import axios from 'axios'
 import cartcontrol from './cartcontrol'
+import BScroll from 'better-scroll'
 
 export default {
   components : {
@@ -122,6 +125,7 @@ export default {
         }
       }
     )
+
   }
 }
 </script>
@@ -221,7 +225,6 @@ export default {
       bottom 48px
       left 0
       background #ffffff
-      overflow auto
       max-height 217px
       .cart-list-header
         height 40px
@@ -238,22 +241,24 @@ export default {
           right 18px
           font-size 12px
           color rgb(0,160,220)
-      .food-item
-        width 100%
-        height 48px
-        line-height 48px
-        margin 0 18px
-        border-1px(rgba(7,17,27,.1))
-        .food-title
-          font-size 14px
-          color rgb(7,17,27)
-        .food-price
-          position absolute
-          right 120px
-          font-size 10px
-        .cart-control
-          position absolute
-          right 18px
-          top 6px
-          display inline-block
+      .item-wrapper
+        overflow auto
+        .food-item
+          width 100%
+          height 48px
+          line-height 48px
+          margin 0 18px
+          border-1px(rgba(7,17,27,.1))
+          .food-title
+            font-size 14px
+            color rgb(7,17,27)
+          .food-price
+            position absolute
+            right 120px
+            font-size 10px
+          .cart-control
+            position absolute
+            right 18px
+            top 6px
+            display inline-block
 </style>
