@@ -243,6 +243,7 @@ export default {
           color rgb(0,160,220)
       .item-wrapper
         overflow auto
+        max-height 217px
         .food-item
           width 100%
           height 48px
